@@ -1,0 +1,26 @@
+h1 Listing companies
+
+table.table
+  thead
+    tr
+      th Name
+      th Countr
+      th
+      th
+      
+
+  tbody
+    - @companies.each do |company|
+      tr
+        td = company.name
+        td = ISO3166::Country.find_country_by_alpha3(company.country_code).name
+        - if @favorite_companies.include? company.id
+           td [ id = "cid#{company.id}"] = link_to '',favorite_destroy_company_path(company_id:company),method: :delete,remote: true  ,class: "glyphicon glyphicon-star"
+        - else
+           td [ id = "cid#{company.id}"] = link_to '',favorite_add_company_path(company_id:company),method: :post,remote: true ,class: "glyphicon glyphicon-star-empty"
+        td = link_to 'Show', company
+       
+      
+
+
+

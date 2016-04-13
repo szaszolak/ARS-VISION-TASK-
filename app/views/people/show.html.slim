@@ -1,0 +1,14 @@
+p#notice = notice
+
+p
+  strong First name:
+  = @person.first_name
+p
+  strong Last name:
+  = @person.last_name
+p
+  strong Company:
+  = @person.company.name
+
+
+= link_to 'Back to company', company_path(@person.company)

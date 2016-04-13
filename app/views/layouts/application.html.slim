@@ -1,0 +1,23 @@
+html
+ head
+  title ARSVisionTask
+  = stylesheet_link_tag    'application',
+   media: 'all', 'data-turbolinks-track' => true 
+  = javascript_include_tag 'application', 
+  'data-turbolinks-track' => true 
+  = csrf_meta_tags 
+
+body
+- if notice
+ 	p.notice ==notice
+
+
+nav[class="navbar navbar-default navbar-fixed-top" ]
+  		.container-fluid: div[id="navbar" class="navbar-collapse collapse"]
+          ul [class='nav navbar-nav']
+            li =link_to 'Home', root_path
+            li =link_to 'Favorites', favorites_path
+          ul [class="nav navbar-nav navbar-right"]
+            li = link_to('Logout', destroy_user_session_path, :method => :delete) 
+
+== yield

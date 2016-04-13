@@ -1,0 +1,2 @@
+$('#pid'+"<%= j @employee.id.to_s%>").children().remove();
+$('#pid'+"<%= j @employee.id.to_s%>").append("<%= j link_to '',favorite_destroy_employee_path(person_id: @employee, company_id:@company),method: :delete,remote: true ,class: 'glyphicon glyphicon-star'%>");

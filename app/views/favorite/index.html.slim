@@ -1,0 +1,36 @@
+h1 Listing favorites
+
+h2 Companies: #{@companies.size}
+table.table
+  thead
+    tr
+      th Name
+      th Country
+      th
+   
+
+  tbody
+    - @companies.each do |company|
+      tr
+        td = company.name
+        td = ISO3166::Country.find_country_by_alpha3(company.country_code).name
+        td = link_to 'Show', company
+       
+h2 Employees: #{@employees.size}
+table.table
+  thead
+    tr
+      th First name
+      th Last name
+   	  th 	
+
+  tbody
+    - @employees.each do |employee|
+      tr
+        td = employee.first_name
+        td = employee.last_name
+        td = link_to 'Show', employee
+       
+
+
+ 

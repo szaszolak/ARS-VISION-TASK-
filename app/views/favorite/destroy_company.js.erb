@@ -1,0 +1,2 @@
+$('#cid'+"<%= j @company.id.to_s%>").children().remove();
+$('#cid'+"<%= j @company.id.to_s%>").append("<%= j link_to '',favorite_add_company_path(company_id:@company),method: :post,remote: true ,class: 'glyphicon glyphicon-star-empty'%>");
